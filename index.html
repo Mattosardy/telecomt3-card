@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#0f0" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --bg:#0a0a0a;             /* negro mate */
@@ -19,6 +20,8 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
+    html{ scroll-behavior:smooth; }
+
     body{
       margin:0; background:var(--bg); color:var(--text);
       font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
@@ -26,6 +29,7 @@
       padding:20px;
       position:relative; overflow:hidden;
     }
+
     /* Fondo “circuito” sutil con SVG */
     body::before{
       content:""; position:absolute; inset:-20%;
@@ -45,6 +49,7 @@
       z-index:0; opacity:1;
       transform: rotate(-1deg) scale(1.02);
     }
+
     .card{
       position:relative; z-index:1;
       width:min(520px, 100%);
@@ -54,9 +59,11 @@
       box-shadow: 0 10px 40px rgba(0,0,0,0.45), 0 0 0 8px rgba(127,255,0,0.02) inset;
       backdrop-filter: blur(6px);
     }
+
     .brand{
       display:flex; align-items:center; gap:14px; margin-bottom:6px;
     }
+
     .logo{
       width:54px; height:54px; border-radius:14px;
       background: radial-gradient(80% 80% at 30% 30%, var(--accent), #1b3f00);
@@ -65,21 +72,27 @@
       border:1px solid rgba(127,255,0,0.3);
       box-shadow:0 0 24px rgba(127,255,0,0.25);
     }
+
     .logo span{ font-size:18px; line-height:1 }
+
     h1{
       margin:0; font-size:20px; letter-spacing:0.4px; font-weight:700;
       text-transform:uppercase;
     }
+
     .subtitle{
       margin:2px 0 14px; color:var(--muted); font-size:14px; letter-spacing:0.3px;
     }
+
     .about{
       margin:0 0 18px; color:#d9ffd9; font-size:14px; line-height:1.45;
     }
+
     .grid{
       display:grid; gap:12px; grid-template-columns:1fr 1fr;
     }
     @media (max-width:480px){ .grid{ grid-template-columns:1fr } }
+
     .btn{
       display:flex; align-items:center; justify-content:center; gap:10px;
       padding:14px 14px; border-radius:14px; border:1px solid rgba(127,255,0,0.25);
@@ -87,31 +100,36 @@
       text-decoration:none; font-weight:600; font-size:15px;
       transition: all .18s ease; text-align:center;
       box-shadow: 0 0 0 0 transparent;
+      cursor:pointer;
     }
     .btn:hover{ transform: translateY(-1px); border-color: var(--accent); box-shadow:0 8px 24px var(--ring) }
     .btn:active{ transform: translateY(0); box-shadow:none }
+
     .btn.secondary{
       background:#141414; color:var(--text);
       border-color:rgba(127,255,0,0.18);
     }
+
     .row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px }
-    .mono{ font-family:"Roboto Mono", monospace; font-size:12px; color:var(--muted) }
+
     .footer{
       margin-top:18px; display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap;
       border-top:1px dashed rgba(127,255,0,0.18); padding-top:12px;
     }
+
     .chip{
       display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px;
       background:rgba(127,255,0,0.08); border:1px solid rgba(127,255,0,0.2); font-size:12px;
     }
+
     .small{ font-size:12px; color:var(--muted) }
     .t3{ color:var(--accent) }
     .hidden{ display:none }
-  
-      /* === Portfolio / Trabajos === */
+
+    /* === Portfolio / Trabajos === */
     #trabajos{
-      margin-top:26px !important;
-      padding-top:10px;
+      margin-top:18px;
+      padding-top:16px;
       border-top:1px dashed rgba(127,255,0,0.18);
     }
 
@@ -119,7 +137,7 @@
       margin:10px 0 10px;
       font-size:22px;
       letter-spacing:.3px;
-      color:var(--accent) !important;
+      color:var(--accent);
       text-shadow: 0 0 18px rgba(127,255,0,0.12);
     }
 
@@ -188,13 +206,9 @@
       width:100%;
       display:block;
     }
-
-    /* Scroll suave al hacer click en "Nuestros trabajos" */
-    html{ scroll-behavior:smooth; }
-
-  
   </style>
 </head>
+
 <body>
   <main class="card" role="main" aria-label="Tarjeta de contacto de Telecomunicaciones Triple Tres">
     <header class="brand" aria-label="Identidad de marca">
@@ -207,8 +221,8 @@
 
     <p class="about">
       Instalación profesional de redes estructuradas (UTP, Cat5e, Cat6, fibra óptica),
-      WiFi empresarial y CCTV. 
-      Instalacion y mantenimiento de Barreras Vehiculares.
+      WiFi empresarial y CCTV.
+      Instalación y mantenimiento de Barreras Vehiculares.
       Eficiencia operativa, documentación clara y tiempos bajo control.
     </p>
 
@@ -216,46 +230,9 @@
       <a class="btn" href="tel:+59898313825">📞 Llamar ahora</a>
       <a class="btn" href="https://wa.me/59898313825" target="_blank" rel="noopener">💬 WhatsApp directo</a>
       <a class="btn secondary" href="mailto:telecomunicacionestripletres@gmail.com">✉️ Enviar correo</a>
-      <section id="trabajos" aria-label="Portfolio de trabajos">
-  <h2>Instalaciones reales</h2>
+      <a class="btn secondary" href="#trabajos">🖼 Nuestros trabajos</a>
 
-  <div class="gallery">
-    <figure class="shot">
-      <span class="badge">UTP</span>
-      <img src="assets/obra1.jpg" alt="Cableado estructurado UTP">
-      <figcaption class="cap">Cableado estructurado UTP</figcaption>
-    </figure>
-
-    <figure class="shot">
-      <span class="badge">RACK</span>
-      <img src="assets/obra2.jpg" alt="Instalación de rack y patch panel">
-      <figcaption class="cap">Rack + patch panel</figcaption>
-    </figure>
-
-    <figure class="shot">
-      <span class="badge">FIBRA</span>
-      <img src="assets/obra3.jpg" alt="Tendido de fibra óptica">
-      <figcaption class="cap">Tendido de fibra óptica</figcaption>
-    </figure>
-
-    <figure class="shot">
-      <span class="badge">CCTV</span>
-      <img src="assets/obra4.jpg" alt="Sistema CCTV instalado">
-      <figcaption class="cap">Sistema CCTV instalado</figcaption>
-    </figure>
-  </div>
-
-  <div class="videoWrap" aria-label="Video de trabajo realizado">
-    <video controls preload="metadata">
-      <source src="assets/video1.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
-    </video>
-  </div>
-</section>
-
-      <!-- LinkedIn / Portafolio (opcional). Reemplazá el href cuando lo tengas. -->
       <a class="btn secondary" href="https://www.linkedin.com/in/telecomunicaciones-triple-tres-87143b274/" target="_blank" rel="noopener">🌐 LinkedIn / Portafolio</a>
-      <!-- vCard local (data URI como fallback). Cambiar a la URL pública del .vcf cuando lo subas -->
       <a class="btn" id="vcfBtn" href="#">💾 Guardar contacto (.vcf)</a>
     </section>
 
@@ -264,21 +241,44 @@
       <button class="btn secondary" id="copyBtn" type="button">📋 Copiar enlace</button>
     </div>
 
-   <section id="trabajos" style="margin-top:50px;">
-  <h2 style="color:#00ff66;">Instalaciones reales</h2>
+    <!-- Portfolio (UNA sola vez, fuera de la grilla) -->
+    <section id="trabajos" aria-label="Portfolio de trabajos">
+      <h2>Instalaciones reales</h2>
 
-  <div class="gallery">
-    <img src="assets/obra1.jpg" alt="Cableado estructurado UTP">
-    <img src="assets/obra2.jpg" alt="Instalación de rack y patch panel">
-    <img src="assets/obra3.jpg" alt="Tendido de fibra óptica">
-    <img src="assets/obra4.jpg" alt="Sistema CCTV instalado">
-  </div>
+      <div class="gallery">
+        <figure class="shot">
+          <span class="badge">UTP</span>
+          <img src="assets/obra1.jpg" alt="Cableado estructurado UTP">
+          <figcaption class="cap">Cableado estructurado UTP</figcaption>
+        </figure>
 
-  <video controls>
-    <source src="assets/video1.mp4" type="video/mp4">
-  </video>
-</section>
-    
+        <figure class="shot">
+          <span class="badge">RACK</span>
+          <img src="assets/obra2.jpg" alt="Instalación de rack y patch panel">
+          <figcaption class="cap">Rack + patch panel</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <span class="badge">FIBRA</span>
+          <img src="assets/obra3.jpg" alt="Tendido de fibra óptica">
+          <figcaption class="cap">Tendido de fibra óptica</figcaption>
+        </figure>
+
+        <figure class="shot">
+          <span class="badge">CCTV</span>
+          <img src="assets/obra4.jpg" alt="Sistema CCTV instalado">
+          <figcaption class="cap">Sistema CCTV instalado</figcaption>
+        </figure>
+      </div>
+
+      <div class="videoWrap" aria-label="Video de trabajo realizado">
+        <video controls preload="metadata">
+          <source src="assets/video1.mp4" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+      </div>
+    </section>
+
     <div class="footer">
       <span class="chip">⚡ NFC-ready</span>
       <span class="small">© <span id="y"></span> <span class="t3">Telecom T Tres</span></span>
@@ -287,7 +287,7 @@
     <!-- Data URI con vCard como fallback si aún no tenés hosting -->
     <a id="vcfData" class="hidden"
        download="TelecomT3-contacto.vcf"
-       href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3A%3BTelecomunicaciones%20Triple%20Tres%3B%3B%3B%0AFN%3ATelecomunicaciones%20Triple%20Tres%0AORG%3ATelecomunicaciones%20Triple%20Tres%0ATITLE%3ASoluciones%20en%20conectividad%0ATEL%3BTYPE%3ACELL%2CVOICE%3A%2B59898313425%0AEMAIL%3BTYPE%3AINTERNET%3Atelecomunicacionestripletres%40gmail.com%0AADR%3BTYPE%3AWORK%3A%3B%3BCarlos%20Nery%203637%20A1%3BMaldonado%3BMaldonado%3B20000%3AUruguay%0AURL%3Ahttps%3A%2F%2Ftelecomt3.example%2Fcontacto%0AEND%3AVCARD">
+       href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3A%3BTelecomunicaciones%20Triple%20Tres%3B%3B%3B%0AFN%3ATelecomunicaciones%20Triple%20Tres%0AORG%3ATelecomunicaciones%20Triple%20Tres%0ATITLE%3ASoluciones%20en%20conectividad%0ATEL%3BTYPE%3ACELL%2CVOICE%3A%2B59898313825%0AEMAIL%3BTYPE%3AINTERNET%3Atelecomunicacionestripletres%40gmail.com%0AURL%3Ahttps%3A%2F%2Fmattosardy.github.io%2Ftelecomt3-card%2F%0AEND%3AVCARD">
     </a>
   </main>
 
@@ -298,15 +298,12 @@
     // vCard: si ya tenés un .vcf público, poné su URL aquí:
     const PUBLIC_VCF_URL = "https://mattosardy.github.io/telecomt3-card/TelecomT3-contacto.vcf?v=2";
 
-    // Botón Guardar contacto: prioriza URL pública; si no, usa Data URI; si estás probando localmente, te dejo además el sandbox como fallback.
     const vcfBtn = document.getElementById('vcfBtn');
     const vcfData = document.getElementById('vcfData');
 
     vcfBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const localSandbox = "sandbox:/mnt/data/TelecomT3-contacto.vcf"; // para pruebas aquí; reemplazar en producción
-      const href = PUBLIC_VCF_URL || vcfData.getAttribute('href');
-      // Intenta abrir el vcf (URL pública o data URI)
+      const href = (PUBLIC_VCF_URL && PUBLIC_VCF_URL.trim()) ? PUBLIC_VCF_URL : vcfData.getAttribute('href');
       const a = document.createElement('a');
       a.href = href;
       a.download = "TelecomT3-contacto.vcf";
@@ -352,10 +349,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
