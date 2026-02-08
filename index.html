@@ -107,6 +107,92 @@
     .small{ font-size:12px; color:var(--muted) }
     .t3{ color:var(--accent) }
     .hidden{ display:none }
+  
+      /* === Portfolio / Trabajos === */
+    #trabajos{
+      margin-top:26px !important;
+      padding-top:10px;
+      border-top:1px dashed rgba(127,255,0,0.18);
+    }
+
+    #trabajos h2{
+      margin:10px 0 10px;
+      font-size:22px;
+      letter-spacing:.3px;
+      color:var(--accent) !important;
+      text-shadow: 0 0 18px rgba(127,255,0,0.12);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width:480px){
+      .gallery{ grid-template-columns: 1fr; }
+    }
+
+    .shot{
+      position:relative;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(127,255,0,0.18);
+      background: rgba(20,20,20,0.85);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      min-height:120px;
+    }
+
+    .shot img{
+      width:100%;
+      height:160px;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.03);
+    }
+
+    .shot .cap{
+      position:absolute;
+      left:10px; right:10px; bottom:10px;
+      padding:8px 10px;
+      border-radius:12px;
+      background: rgba(0,0,0,0.55);
+      border:1px solid rgba(127,255,0,0.15);
+      backdrop-filter: blur(6px);
+      font-size:12px;
+      color:#eaeaea;
+      line-height:1.2;
+    }
+
+    .shot .badge{
+      position:absolute;
+      top:10px; left:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:11px;
+      background: rgba(127,255,0,0.10);
+      border:1px solid rgba(127,255,0,0.22);
+      color: var(--accent);
+      font-family:"Roboto Mono", monospace;
+    }
+
+    .videoWrap{
+      margin-top:14px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(127,255,0,0.18);
+      background:#0f0f0f;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .videoWrap video{
+      width:100%;
+      display:block;
+    }
+
+    /* Scroll suave al hacer click en "Nuestros trabajos" */
+    html{ scroll-behavior:smooth; }
+
+  
   </style>
 </head>
 <body>
@@ -130,7 +216,43 @@
       <a class="btn" href="tel:+59898313825">📞 Llamar ahora</a>
       <a class="btn" href="https://wa.me/59898313825" target="_blank" rel="noopener">💬 WhatsApp directo</a>
       <a class="btn secondary" href="mailto:telecomunicacionestripletres@gmail.com">✉️ Enviar correo</a>
-      <a class="btn secondary" href="#trabajos">🖼 Nuestros trabajos</a>
+      <section id="trabajos" aria-label="Portfolio de trabajos">
+  <h2>Instalaciones reales</h2>
+
+  <div class="gallery">
+    <figure class="shot">
+      <span class="badge">UTP</span>
+      <img src="assets/obra1.jpg" alt="Cableado estructurado UTP">
+      <figcaption class="cap">Cableado estructurado UTP</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <span class="badge">RACK</span>
+      <img src="assets/obra2.jpg" alt="Instalación de rack y patch panel">
+      <figcaption class="cap">Rack + patch panel</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <span class="badge">FIBRA</span>
+      <img src="assets/obra3.jpg" alt="Tendido de fibra óptica">
+      <figcaption class="cap">Tendido de fibra óptica</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <span class="badge">CCTV</span>
+      <img src="assets/obra4.jpg" alt="Sistema CCTV instalado">
+      <figcaption class="cap">Sistema CCTV instalado</figcaption>
+    </figure>
+  </div>
+
+  <div class="videoWrap" aria-label="Video de trabajo realizado">
+    <video controls preload="metadata">
+      <source src="assets/video1.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </div>
+</section>
+
       <!-- LinkedIn / Portafolio (opcional). Reemplazá el href cuando lo tengas. -->
       <a class="btn secondary" href="https://www.linkedin.com/in/telecomunicaciones-triple-tres-87143b274/" target="_blank" rel="noopener">🌐 LinkedIn / Portafolio</a>
       <!-- vCard local (data URI como fallback). Cambiar a la URL pública del .vcf cuando lo subas -->
@@ -230,6 +352,7 @@
   </script>
 </body>
 </html>
+
 
 
 
