@@ -359,9 +359,30 @@
         alert("No se pudo copiar. Copiá manualmente: " + window.location.href);
       }
     });
+
+   // Mostrar/ocultar Portfolio
+const trabajosBtn = document.getElementById('trabajosBtn');
+const trabajos = document.getElementById('trabajos');
+
+trabajosBtn.addEventListener('click', () => {
+  const isOpen = trabajos.classList.toggle('show');
+
+  if (isOpen) {
+    trabajosBtn.textContent = "⬆️ Ocultar trabajos";
+    // Scroll suave hasta la sección
+    trabajos.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    trabajosBtn.textContent = "🖼 Nuestros trabajos";
+    // Opcional: volver arriba
+    // window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+    
   </script>
 </body>
 </html>
+
 
 
 
