@@ -23,16 +23,16 @@
     html{ scroll-behavior:smooth; }
 
     body{
-  margin:0; background:var(--bg); color:var(--text);
-  font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  display:flex;
-  align-items:flex-start;      /* 👈 clave: arriba */
-  justify-content:center;      /* 👈 centrado horizontal */
-  padding:20px 20px 40px;
-  position:relative;
-  overflow-x:hidden;
-  overflow-y:auto;
-}
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      display:flex;
+      align-items:flex-start;      /* 👈 clave: arriba */
+      justify-content:center;      /* 👈 centrado horizontal */
+      padding:20px 20px 40px;
+      position:relative;
+      overflow-x:hidden;
+      overflow-y:auto;
+    }
 
     /* Fondo “circuito” sutil con SVG */
     body::before{
@@ -62,10 +62,8 @@
       border-radius:24px; padding:28px 22px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.45), 0 0 0 8px rgba(127,255,0,0.02) inset;
       backdrop-filter: blur(6px);
+      margin-top:10px;
     }
-    .card{
-  margin-top:10px;
-}
 
     .brand{
       display:flex; align-items:center; gap:14px; margin-bottom:6px;
@@ -138,7 +136,10 @@
       margin-top:18px;
       padding-top:16px;
       border-top:1px dashed rgba(127,255,0,0.18);
+      display:none; /* oculto por defecto */
     }
+
+    #trabajos.show{ display:block; }
 
     #trabajos h2{
       margin:10px 0 10px;
@@ -213,49 +214,7 @@
       width:100%;
       display:block;
     }
-    /* Portfolio oculto por defecto */
-#trabajos { display:none; }
-
-/* Cuando se activa, se muestra */
-#trabajos.show { display:block; }
-
   </style>
-
-/* === QR clickeable completo === */
-.qrSection{
-  margin-top:16px;
-  padding-top:14px;
-  border-top:1px dashed rgba(127,255,0,0.18);
-  text-align:center;
-}
-
-.qrLink{
-  display:inline-block;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(127,255,0,0.18);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-}
-
-.qrImg{
-  width:min(360px, 90vw);
-  height:auto;
-  display:block;
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.qrLink:hover .qrImg{
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(127,255,0,0.25);
-}
-
-.qrHint{
-  margin-top:10px;
-  font-size:12px;
-  color:var(--muted);
-}
-
-  
 </head>
 
 <body>
@@ -290,17 +249,6 @@
       <button class="btn secondary" id="copyBtn" type="button">📋 Copiar enlace</button>
     </div>
 
-    <section class="qrSection" aria-label="Acceso rápido por QR">
-  <a href="https://mattosardy.github.io/telecomt3-card/"
-     target="_blank"
-     rel="noopener"
-     class="qrLink"
-     aria-label="Abrir tarjeta digital Telecom T3">
-    <img src="qr-telecomt3.png" alt="QR de Telecom T3" class="qrImg">
-  </a>
-  <div class="qrHint">Escaneá o tocá el QR</div>
-</section>
-    
     <!-- Portfolio (UNA sola vez, fuera de la grilla) -->
     <section id="trabajos" aria-label="Portfolio de trabajos">
       <h2>Instalaciones reales</h2>
@@ -407,40 +355,20 @@
       }
     });
 
-   // Mostrar/ocultar Portfolio
-const trabajosBtn = document.getElementById('trabajosBtn');
-const trabajos = document.getElementById('trabajos');
+    // Mostrar/ocultar Portfolio
+    const trabajosBtn = document.getElementById('trabajosBtn');
+    const trabajos = document.getElementById('trabajos');
 
-trabajosBtn.addEventListener('click', () => {
-  const isOpen = trabajos.classList.toggle('show');
+    trabajosBtn.addEventListener('click', () => {
+      const isOpen = trabajos.classList.toggle('show');
 
-  if (isOpen) {
-    trabajosBtn.textContent = "⬆️ Ocultar trabajos";
-    // Scroll suave hasta la sección
-    trabajos.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } else {
-    trabajosBtn.textContent = "🖼 Nuestros trabajos";
-    // Opcional: volver arriba
-    // window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-});
-
-    
+      if (isOpen) {
+        trabajosBtn.textContent = "⬆️ Ocultar trabajos";
+        trabajos.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        trabajosBtn.textContent = "🖼 Nuestros trabajos";
+      }
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
