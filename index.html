@@ -322,26 +322,54 @@
 
     // Compartir esta tarjeta (Web Share API si disponible)
     const shareBtn = document.getElementById('shareBtn');
-    shareBtn.addEventListener('click', async () => {
-      const shareData = {
-        title: 'Telecomunicaciones Triple Tres',
-        text: 'Tarjeta de contacto de Telecom T Tres',
-        url: window.location.href
-      };
-      try{
-        if(navigator.share){
-          await navigator.share(shareData);
-        }else{
-          await navigator.clipboard.writeText(window.location.href);
-          shareBtn.textContent = "✅ Enlace copiado";
-          setTimeout(()=>shareBtn.textContent="🔗 Compartir esta tarjeta", 1600);
-        }
-      }catch(err){
-        await navigator.clipboard.writeText(window.location.href);
-        shareBtn.textContent = "✅ Enlace copiado";
-        setTimeout(()=>shareBtn.textContent="🔗 Compartir esta tarjeta", 1600);
-      }
-    });
+const CANON_URL = "https://mattosardy.github.io/telecomt3-card/";
+const SHARE_TEXT = "Telecomunicaciones Triple Tres — Tarjeta de contacto";
+
+shareBtn.addEventListener('click', async () => {
+
+  // 1️⃣ Intentamos share nativo (WhatsApp, mail, etc.)
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "Telecomunicaciones Triple Tres",
+        text: SHARE_TEXT,
+        url: CANON_URL
+      });
+      return;
+    } catch (e) {
+      // si cancela o falla, seguimos al plan B
+    }
+  }
+
+  // 2️⃣ Plan B = copiar link automáticamente
+  try {
+    await navigator.clipboard.writeText(CANON_URL);
+  } catch {}
+
+  // 3️⃣ Detectamos si es móvil
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  // 4️⃣ Intentamos abrir Instagram / TikTok como opción de publicación
+  if (isMobile) {
+    // Instagram
+    setTimeout(() => {
+      window.open("instagram://app", "_blank");
+    }, 300);
+
+    // TikTok
+    setTimeout(() => {
+      window.open("snssdk1233://", "_blank");
+    }, 800);
+
+    shareBtn.textContent = "📋 Link copiado — pegalo en IG o TikTok";
+    setTimeout(() => shareBtn.textContent = "🔗 Compartir esta tarjeta", 2500);
+
+  } else {
+    shareBtn.textContent = "📋 Link copiado — pegalo donde quieras";
+    setTimeout(() => shareBtn.textContent = "🔗 Compartir esta tarjeta", 2500);
+  }
+});
+
 
     // Copiar enlace al portapapeles
     const copyBtn = document.getElementById('copyBtn');
@@ -372,3 +400,4 @@
   </script>
 </body>
 </html>
+
