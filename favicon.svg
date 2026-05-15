@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Telecom T3">
+  <rect width="64" height="64" rx="16" fill="#101414"/>
+  <path d="M13 18h38v8H36v22h-8V26H13z" fill="#67d23a"/>
+  <path d="M41 31h7a8 8 0 0 1 0 16h-7v-7h7a1 1 0 0 0 0-2h-7z" fill="#f7f9f6"/>
+</svg>
